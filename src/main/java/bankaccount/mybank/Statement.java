@@ -1,5 +1,6 @@
 package bankaccount.mybank;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,7 +30,7 @@ public final class Statement {
      * @param transaction
      */
     public void addTransaction(final Transaction transaction) {
-        this.statementItems.add(new StatementItem(transaction, this.getBalance() + transaction.getAmount()));
+        this.statementItems.add(new StatementItem(transaction, this.getBalance().add(transaction.getAmount())));
     }
     
     
@@ -38,8 +39,8 @@ public final class Statement {
      *
      * @return
      */
-    public double getBalance() {
-        return this.statementItems.isEmpty() ? 0 : this.statementItems.get(this.statementItems.size() - 1).getBalance();
+    public BigDecimal getBalance() {
+        return this.statementItems.isEmpty() ? BigDecimal.ZERO : this.statementItems.get(this.statementItems.size() - 1).getBalance();
         
     } 
     

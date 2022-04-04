@@ -1,5 +1,7 @@
 package bankaccount.mybank;
 
+import java.math.BigDecimal;
+
 /**
  * <p>StatementItem. </p>
  *
@@ -7,7 +9,7 @@ package bankaccount.mybank;
 public final class StatementItem {
     
     private final Transaction transaction;
-    private final double balance;
+    private final BigDecimal balance;
     
     /**
      * Constructor.
@@ -15,7 +17,7 @@ public final class StatementItem {
      * @param aTransaction
      * @param aBalance
      */
-    public StatementItem(final Transaction aTransaction, final double aBalance) {
+    public StatementItem(final Transaction aTransaction, final BigDecimal aBalance) {
         super();
         this.transaction = aTransaction;
         this.balance = aBalance;
@@ -35,7 +37,7 @@ public final class StatementItem {
      *
      * @return
      */
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return this.balance;
     }
     

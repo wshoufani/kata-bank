@@ -1,5 +1,6 @@
 package bankaccount.mybank;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -11,7 +12,7 @@ public final class Transaction {
     public static final String DEPOSIT = "DEPOSIT";
     public static final String WITHDRAWAL = "WITHDRAWAL";
 
-    private final double amount;
+    private final BigDecimal amount;
     private final LocalDateTime date;
     private final String operation;
     
@@ -21,11 +22,11 @@ public final class Transaction {
      * @param aAmount
      * @param aDate
      */
-    public Transaction(final double aAmount, final LocalDateTime aDate) {
+    public Transaction(final BigDecimal aAmount, final LocalDateTime aDate) {
         super();
         this.amount = aAmount;
         this.date = aDate;
-        this.operation = (aAmount >= 0) ? DEPOSIT : WITHDRAWAL;
+        this.operation = (aAmount.compareTo(BigDecimal.ZERO) > 0) ? DEPOSIT : WITHDRAWAL;
     }
 
     /**
@@ -33,7 +34,7 @@ public final class Transaction {
      *
      * @return
      */
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return this.amount;
     }
 

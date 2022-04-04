@@ -1,5 +1,6 @@
 package bankaccount.mybank;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 
@@ -18,7 +19,7 @@ public final class Account {
      * @param aDate
      * @return
      */
-    public Account deposit(final double aAmount, final LocalDateTime aDate) {
+    public Account deposit(final BigDecimal aAmount, final LocalDateTime aDate) {
         this.statement.addTransaction(new Transaction(aAmount, aDate));
         return this; 
     }
@@ -30,7 +31,7 @@ public final class Account {
      * @param aAmount
      * @return
      */
-    public Account deposit(double aAmount) {
+    public Account deposit(BigDecimal aAmount) {
         deposit(aAmount, LocalDateTime.now());
         return this;
     }
@@ -43,8 +44,8 @@ public final class Account {
      * @param aDate
      * @return
      */
-    public Account withdraw(double aAmount, LocalDateTime aDate) {
-        this.statement.addTransaction(new Transaction(-aAmount, aDate));
+    public Account withdraw(BigDecimal aAmount, LocalDateTime aDate) {
+        this.statement.addTransaction(new Transaction(aAmount.negate(), aDate));
         return this;
     }
     
@@ -54,7 +55,7 @@ public final class Account {
      * @param aAmount
      * @return
      */
-    public Account withdraw(double aAmount) {
+    public Account withdraw(BigDecimal aAmount) {
         withdraw(aAmount, LocalDateTime.now());
         return this;
     }

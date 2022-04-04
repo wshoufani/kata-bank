@@ -15,14 +15,22 @@
 	<javaVersion>1.8</javaVersion>
 	<maven.compiler.source>${javaVersion}</maven.compiler.source>
 	<maven.compiler.target>${javaVersion}</maven.compiler.target>
+    <junitVersion>4.13.2</junitVersion>
+    <assertjVersion>3.22.0</assertjVersion>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+       <dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junitVersion}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertjVersion}</version>
+			<scope>test</scope>
+		</dependency>
   </dependencies>
 </project>
